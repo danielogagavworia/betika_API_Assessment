@@ -1,0 +1,549 @@
+{
+	"info": {
+		"_postman_id": "69366069-43eb-4e3a-aa60-79e0c020f25a",
+		"name": "Betika_API_ASSESSMENT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24561127",
+		"_collection_link": "https://dark-spaceship-690651.postman.co/workspace/Team-Workspace~de9b6fc7-bb40-4a58-8c7a-9db881e8f5c7/collection/24561127-69366069-43eb-4e3a-aa60-79e0c020f25a?action=share&source=collection_link&creator=24561127"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "Register_Unsuccessful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 400 Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"const result =pm.response.json();\r",
+									"\r",
+									"pm.test(\"Error message is displayed\", function(){\r",
+									"    pm.expect(result.error).to.be.eql(\"Missing password\");\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/register",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register_Successful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const result =pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verify that the ID is 4\", function(){\r",
+									"    pm.expect(result.id).to.be.eql(4);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Verify that the token is generated\", function(){\r",
+									"    pm.expect(result.token).to.be.eql(\"QpwL5tke4Pnpja7X4\");\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"hello\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/register",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login_Unsuccessful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 400 Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"const result =pm.response.json();\r",
+									"\r",
+									"pm.test(\"Error message is displayed\", function(){\r",
+									"    pm.expect(result.error).to.be.eql(\"Missing password\");\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/login",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login_Successful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const result =pm.response.json();\r",
+									"\r",
+									"pm.test(\"Verify that the token is generated\", function(){\r",
+									"    pm.expect(result.token).to.be.eql(\"QpwL5tke4Pnpja7X4\");\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"hello\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/login",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create",
+			"item": [
+				{
+					"name": "Create_Successfully",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"const result =pm.response.json();\r",
+									"let username= pm.environment.get(\"Full_Name\");\r",
+									"let job= pm.environment.get(\"Occupation\");\r",
+									"\r",
+									"pm.test(\"Fullname is correct\", function(){\r",
+									"    pm.expect(result.name).to.be.eql(username);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Job is correct\", function(){\r",
+									"    pm.expect(result.job).to.be.eql(job);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"ID is created\", function(){\r",
+									"    pm.expect(result.id).to.be.not.eql(null);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Full_Name\", pm.variables.replaceIn('{{$randomFullName}}'));\r",
+									"\r",
+									"\r",
+									"const jobTitles = [\r",
+									"  'Software Developer',\r",
+									"  'Data Scientist',\r",
+									"  'Teacher',\r",
+									"  'Doctor',\r",
+									"  'Chef',\r",
+									"  'Electrician',\r",
+									"  'Graphic Designer',\r",
+									"  // Add more job titles as needed\r",
+									"];\r",
+									"\r",
+									"// Function to generate a random job title\r",
+									"function getRandomJobTitle() {\r",
+									"  const randomIndex = Math.floor(Math.random() * jobTitles.length);\r",
+									"  return jobTitles[randomIndex];\r",
+									"}\r",
+									"\r",
+									"// Example usage\r",
+									"const randomJobTitle = getRandomJobTitle();\r",
+									"\r",
+									"pm.environment.set(\"Occupation\",randomJobTitle);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{Full_Name}}\",\r\n    \"job\": \"{{Occupation}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/users",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update",
+			"item": [
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const result =pm.response.json();\r",
+									"let username= pm.environment.get(\"Full_Name\");\r",
+									"let job= pm.environment.get(\"Occupation\");\r",
+									"\r",
+									"pm.test(\"Fullname is correct\", function(){\r",
+									"    pm.expect(result.name).to.be.eql(username);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Job is correct\", function(){\r",
+									"    pm.expect(result.job).to.be.eql(job);\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Full_Name\", pm.variables.replaceIn('{{$randomFullName}}'));\r",
+									"\r",
+									"\r",
+									"const jobTitles = [\r",
+									"  'Software Developer',\r",
+									"  'Data Scientist',\r",
+									"  'Teacher',\r",
+									"  'Doctor',\r",
+									"  'Chef',\r",
+									"  'Electrician',\r",
+									"  'Graphic Designer',\r",
+									"  // Add more job titles as needed\r",
+									"];\r",
+									"\r",
+									"// Function to generate a random job title\r",
+									"function getRandomJobTitle() {\r",
+									"  const randomIndex = Math.floor(Math.random() * jobTitles.length);\r",
+									"  return jobTitles[randomIndex];\r",
+									"}\r",
+									"\r",
+									"// Example usage\r",
+									"const randomJobTitle = getRandomJobTitle();\r",
+									"\r",
+									"pm.environment.set(\"Occupation\",randomJobTitle);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{Full_Name}}\",\r\n    \"job\": \"{{Occupation}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const result =pm.response.json();\r",
+									"let username= pm.environment.get(\"Full_Name\");\r",
+									"let job= pm.environment.get(\"Occupation\");\r",
+									"\r",
+									"pm.test(\"Fullname is correct\", function(){\r",
+									"    pm.expect(result.name).to.be.eql(username);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Job is correct\", function(){\r",
+									"    pm.expect(result.job).to.be.eql(job);\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Full_Name\", pm.variables.replaceIn('{{$randomFullName}}'));\r",
+									"\r",
+									"\r",
+									"const jobTitles = [\r",
+									"  'Software Developer',\r",
+									"  'Data Scientist',\r",
+									"  'Teacher',\r",
+									"  'Doctor',\r",
+									"  'Chef',\r",
+									"  'Electrician',\r",
+									"  'Graphic Designer',\r",
+									"  // Add more job titles as needed\r",
+									"];\r",
+									"\r",
+									"// Function to generate a random job title\r",
+									"function getRandomJobTitle() {\r",
+									"  const randomIndex = Math.floor(Math.random() * jobTitles.length);\r",
+									"  return jobTitles[randomIndex];\r",
+									"}\r",
+									"\r",
+									"// Example usage\r",
+									"const randomJobTitle = getRandomJobTitle();\r",
+									"\r",
+									"pm.environment.set(\"Occupation\",randomJobTitle);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{Full_Name}}\",\r\n    \"job\": \"{{Occupation}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"item": [
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 204 No ContentK\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Full_Name\", pm.variables.replaceIn('{{$randomFullName}}'));\r",
+									"\r",
+									"\r",
+									"const jobTitles = [\r",
+									"  'Software Developer',\r",
+									"  'Data Scientist',\r",
+									"  'Teacher',\r",
+									"  'Doctor',\r",
+									"  'Chef',\r",
+									"  'Electrician',\r",
+									"  'Graphic Designer',\r",
+									"  // Add more job titles as needed\r",
+									"];\r",
+									"\r",
+									"// Function to generate a random job title\r",
+									"function getRandomJobTitle() {\r",
+									"  const randomIndex = Math.floor(Math.random() * jobTitles.length);\r",
+									"  return jobTitles[randomIndex];\r",
+									"}\r",
+									"\r",
+									"// Example usage\r",
+									"const randomJobTitle = getRandomJobTitle();\r",
+									"\r",
+									"pm.environment.set(\"Occupation\",randomJobTitle);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
