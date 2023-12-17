@@ -479,7 +479,7 @@
 			"name": "Delete",
 			"item": [
 				{
-					"name": "Update",
+					"name": "Delete",
 					"event": [
 						{
 							"listen": "test",
@@ -497,30 +497,7 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"pm.environment.set(\"Full_Name\", pm.variables.replaceIn('{{$randomFullName}}'));\r",
-									"\r",
-									"\r",
-									"const jobTitles = [\r",
-									"  'Software Developer',\r",
-									"  'Data Scientist',\r",
-									"  'Teacher',\r",
-									"  'Doctor',\r",
-									"  'Chef',\r",
-									"  'Electrician',\r",
-									"  'Graphic Designer',\r",
-									"  // Add more job titles as needed\r",
-									"];\r",
-									"\r",
-									"// Function to generate a random job title\r",
-									"function getRandomJobTitle() {\r",
-									"  const randomIndex = Math.floor(Math.random() * jobTitles.length);\r",
-									"  return jobTitles[randomIndex];\r",
-									"}\r",
-									"\r",
-									"// Example usage\r",
-									"const randomJobTitle = getRandomJobTitle();\r",
-									"\r",
-									"pm.environment.set(\"Occupation\",randomJobTitle);"
+									""
 								],
 								"type": "text/javascript"
 							}
